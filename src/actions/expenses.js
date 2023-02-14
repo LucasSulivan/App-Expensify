@@ -39,7 +39,7 @@ export const editExpense = (id, update) =>({
 );
 
 export const setExpenses = (expenses) => ({
-  type: 'SET_EXPENSE',
+  type: 'SET_EXPENSES',
   expenses
 });
 
@@ -55,6 +55,14 @@ export const startSetExpenses = () => {
         });
       });
       dispatch(setExpenses(expenses))
+    });
+  };
+};
+
+export const startRemoveExpense = ({ id } = {})=>{
+  return (dispatch)=>{
+    return database.ref(`expenses/${id}`).remove().then(()=>{
+      dispatch(removeExpense({id}))
     });
   };
 };
