@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 
-const firebaseConfig = {
+const config = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.FIREBASE_DATABASE_URL,
@@ -10,20 +10,12 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID
 };
 
-
-
-
-
-
-
-
-
-
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config);
 
 const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export {firebase , database as default};
+export { firebase , googleAuthProvider, database as default };
 
 
 /* database.ref('expenses').on('child_changed',(snapshot)=>{
