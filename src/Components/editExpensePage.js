@@ -35,7 +35,7 @@ const mapStateToProps =(state,props)=>{
 
 const mapDispatchtoProps = (dispatch,props)=>({
   startEditExpense: (id,expense)=>dispatch(startEditExpense(id,expense)),
-  startRemoveExpense: (data)=> dispatch(startRemoveExpense(expense))
+  startRemoveExpense: (data)=> dispatch(startRemoveExpense(data))
 });
 
 export default connect(mapStateToProps,mapDispatchtoProps)(EditExpensePage)
